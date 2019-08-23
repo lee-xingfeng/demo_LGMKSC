@@ -16,7 +16,7 @@ E = zeros(nn);
 Z = eye(nn);
 J = Z;
 %args
-epsilon = 1e-7; maxIter = 30;  max_mu = 1e5;
+epsilon = 1e-7; maxIter = 3000;  max_mu = 1e5;
 
 Y1=zeros(nn);
 Y2=zeros(nn);
