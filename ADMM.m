@@ -4,8 +4,8 @@
 function [result,Z,E,obj,iter]= ADMM(H,y,alpha,beta, mu,rho)
 nCluster=length(unique(y));
 nn=length(y);
-m = size(H,3); %核的数量
-%计算均值核
+m = size(H,3);
+
 K = zeros(nn);
 g = ones(1,m)/m;
 for j = 1:m
