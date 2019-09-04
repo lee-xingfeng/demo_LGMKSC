@@ -4,7 +4,7 @@
 function [result,Z,E,obj,iter]= ADMM(H,y,alpha,beta, mu,rho)
 nCluster=length(unique(y));
 nn=length(y);
-m = size(H,3);
+m = size(H,3); 
 
 K = zeros(nn);
 g = ones(1,m)/m;
@@ -16,7 +16,7 @@ E = zeros(nn);
 Z = eye(nn);
 J = Z;
 %args
-epsilon = 1e-7; maxIter = 3000;  max_mu = 1e5;
+epsilon = 1e-7; maxIter = 30;  max_mu = 1e5;
 
 Y1=zeros(nn);
 Y2=zeros(nn);
@@ -36,7 +36,7 @@ for iter = 1:maxIter
     diagS = diag(S);
     svp = length(find(diagS > 1/mu));
     diagS = max(0,diagS - 1/mu);
-    if svp < 0.5 %svp = 0
+    if svp < 0.5 
         svp = 1;
     end
     J= U(:,1:svp)*diag(diagS(1:svp))*V(:,1:svp)';
